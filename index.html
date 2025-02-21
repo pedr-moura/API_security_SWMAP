@@ -12,13 +12,11 @@
     </style>
 </head>
 <body>
-    <h2>Hosts Habilitados</h2>
+    <h2>Habilitados para SwitchMap</h2>
     <table id="apiTable">
         <thead>
             <tr>
-                <th>Nome</th>
-                <th>Host</th>
-                <th>Status</th>
+                <th>Máquinas</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +27,9 @@
             .then(response => response.json())
             .then(data => {
                 const tableBody = document.querySelector('#apiTable tbody');
-                data.forEach(api => {
+                data.hostnames.forEach(hostname => {
                     let row = `<tr>
-                        <td>${api.nome}</td>
-                        <td>${api.host}</td>
-                        <td>${api.status}</td>
+                        <td>${hostname}</td>
                     </tr>`;
                     tableBody.innerHTML += row;
                 });
